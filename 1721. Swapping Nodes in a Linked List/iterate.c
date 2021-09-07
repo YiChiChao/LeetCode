@@ -24,6 +24,8 @@ struct ListNode* swapNodes(struct ListNode* head, int k){
         node = node->next;
         ++i;
     }
+
+
     //do the swap in the array
     int tmp = a[k-1];
     a[k-1] = a[i-k];
