@@ -10,27 +10,18 @@ int* sortedSquares(int* nums, int numsSize, int* returnSize){
     int leftPow = pow(nums[left],2), rightPow = pow(nums[right],2);
     int index = right;
     while(left <= right){
+        if(rightPow == -1)rightPow = nums[right]*nums[right];
+        else leftPow = nums[left]*nums[left];
+        
         if(leftPow > rightPow){
             ans[index--] = leftPow;
             ++left;
-            leftPow = nums[left]*nums[left];
-        }else if(rightPow > leftPow){
+            leftPow = -1;
+        }else {
             ans[index--] = rightPow;
             printf("v\n");
             --right;
-            rightPow = nums[right]*nums[right];
-            printf("v\n");
-        }else if(right != left){
-            ans[index--] = rightPow;
-            ans[index--] = rightPow;
-            ++left;
-            --right;
-            leftPow = nums[left]*nums[left];
-            rightPow = nums[right]*nums[right];
-            printf("v\n");
-        }else{
-            ans[index--] = rightPow;
-            left++;
+            rightPow = -1;
             printf("v\n");
         }
     }
