@@ -7,26 +7,22 @@ int* sortedSquares(int* nums, int numsSize, int* returnSize){
     *returnSize = numsSize;
     int* ans = malloc(numsSize*sizeof(int));
     int left = 0, right = numsSize-1;
-    int leftPow = pow(nums[left],2), rightPow = pow(nums[right],2);
     int index = right;
     while(left <= right){
-        if(rightPow == -1)rightPow = nums[right]*nums[right];
-        else leftPow = nums[left]*nums[left];
-        
-        if(leftPow > rightPow){
-            ans[index--] = leftPow;
+        if(abs(nums[left]) > abs(nums[right])){
+            ans[index--] = nums[left]*nums[left];
+            printf("%d\n", nums[left]*nums[left]);
             ++left;
-            leftPow = -1;
         }else {
-            ans[index--] = rightPow;
+            ans[index--] = nums[right]*nums[right];
+            printf("%d\n", nums[right]*nums[right]);
             printf("v\n");
             --right;
-            rightPow = -1;
             printf("v\n");
         }
     }
-    for(int i = 0; i < numsSize; ++i){
+    /*for(int i = 0; i < numsSize; ++i){
         printf("%d ", ans[i]);
-    }printf("\n");
+    }printf("\n");*/
     return ans;
 }
