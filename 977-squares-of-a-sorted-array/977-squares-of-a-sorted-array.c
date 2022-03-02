@@ -12,17 +12,21 @@ int* sortedSquares(int* nums, int numsSize, int* returnSize){
     while(left <= right){
         if(leftPow > rightPow){
             ans[index--] = leftPow;
-            leftPow = pow(nums[++left],2);
+            ++left;
+            leftPow = nums[left]*nums[left];
         }else if(rightPow > leftPow){
             ans[index--] = rightPow;
             printf("v\n");
-            rightPow = pow(nums[--right],2);
+            --right;
+            rightPow = nums[right]*nums[right];
             printf("v\n");
         }else if(right != left){
             ans[index--] = rightPow;
             ans[index--] = rightPow;
-            rightPow = pow(nums[--right],2);
-            leftPow = pow(nums[++left],2);
+            ++left;
+            --right;
+            leftPow = nums[left]*nums[left];
+            rightPow = nums[right]*nums[right];
             printf("v\n");
         }else{
             ans[index--] = rightPow;
