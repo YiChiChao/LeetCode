@@ -2,10 +2,8 @@ void reverse(int* nums, int start, int end){
     int temp = 0;
     while(start <= end){
         temp = nums[start];
-        nums[start] = nums[end];
-        nums[end] = temp;
-        start++;
-        end--;
+        nums[start++] = nums[end];
+        nums[end--] = temp;
     }
     return;
 }
