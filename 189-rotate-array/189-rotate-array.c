@@ -9,7 +9,7 @@ void reverse(int* nums, int start, int end){
 }
 
 void rotate(int* nums, int numsSize, int k){
-    k %= numsSize;
+    if(k >= numsSize)k %= numsSize;
     reverse(nums, 0, numsSize-1);
     reverse(nums, 0, k-1);
     reverse(nums, k, numsSize-1);
