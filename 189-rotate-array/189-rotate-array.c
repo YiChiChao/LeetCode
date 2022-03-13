@@ -1,15 +1,19 @@
+void reverse(int* nums, int start, int end){
+    int temp = 0;
+    while(start <= end){
+        temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start++;
+        end--;
+    }
+    return;
+}
+
 void rotate(int* nums, int numsSize, int k){
-    int* ans = (int*)malloc(sizeof(int)*numsSize);
-    k = k % numsSize;
-    int index = numsSize-k-1;
-    for(int i = 0; i < numsSize; ++i){
-        index = (index+1) % numsSize;
-        ans[i] = nums[index];
-    }
-    for(int i = 0; i < numsSize; ++i){
-        nums[i] = ans[i];
-    }
-    free(ans);
-    ans = NULL;
+    k %= numsSize;
+    reverse(nums, 0, numsSize-1);
+    reverse(nums, 0, k-1);
+    reverse(nums, k, numsSize-1);
     return ;
 }
