@@ -6,7 +6,6 @@ public:
             bucket[x[1]] += x[0];
         }
         int totalUnit = 0;
-        int numberOfBoxes, numberOfUnitsPerBox;
         for(int i = 1000; i > 0 ; --i){
             if(bucket[i] == 0)continue;
             if(truckSize >= bucket[i]){
