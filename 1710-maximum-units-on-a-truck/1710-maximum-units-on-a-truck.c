@@ -6,9 +6,9 @@ int cmp (const void* a, const void* b){
 
 int maximumUnits(int** boxTypes, int boxTypesSize, int* boxTypesColSize, int truckSize){
     qsort(boxTypes, boxTypesSize, sizeof(boxTypes[0]), cmp);
-    for(int i = 0; i < boxTypesSize; ++i){
+    /*for(int i = 0; i < boxTypesSize; ++i){
         printf("%d\n", boxTypes[i][1]);
-    }
+    }*/
     *boxTypesColSize = 2;
     int totalUnit = 0;
     int numberOfBoxes, numberOfUnitsPerBox;
@@ -23,7 +23,7 @@ int maximumUnits(int** boxTypes, int boxTypesSize, int* boxTypesColSize, int tru
             totalUnit += truckSize * numberOfUnitsPerBox;
             truckSize = 0;
         }
-        printf("%d\n", totalUnit);
+        //printf("%d\n", totalUnit);
             
     }
     return totalUnit;
