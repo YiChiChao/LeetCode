@@ -5,13 +5,16 @@ public:
             return a[1] > b[1]; //decreasing
         });
         int totalUnit = 0;
+        int numberOfBoxes, numberOfUnitsPerBox;
         for(int i = 0; truckSize > 0 && i < boxTypes.size() ; ++i){
-            if(truckSize >= boxTypes[i][0]){
-                totalUnit += boxTypes[i][0] * boxTypes[i][1];
-                truckSize -= boxTypes[i][0];
+            numberOfBoxes = boxTypes[i][0];
+            numberOfUnitsPerBox = boxTypes[i][1];
+            if(truckSize >= numberOfBoxes){
+                totalUnit += numberOfBoxes * numberOfUnitsPerBox;
+                truckSize -= numberOfBoxes;
             }
             else{
-                totalUnit += truckSize * boxTypes[i][1];
+                totalUnit += truckSize * numberOfUnitsPerBox;
                 truckSize = 0;
             }
             
